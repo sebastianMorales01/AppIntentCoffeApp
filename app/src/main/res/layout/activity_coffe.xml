@@ -1,75 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
     android:orientation="vertical"
-    tools:context=".CoffeActivity">
+    android:background="#F6C987">
 
+    <ImageView
+        android:id="@+id/imag"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/logo"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Coffee"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        />
     <TextView
         android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:layout_below="@id/imag"
+        android:gravity="center"
+        android:layout_marginTop="14dp"
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Topping"
-        android:textSize="22sp"
-        />
-    <CheckBox
-        android:id="@+id/opt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Whipped Cream"
-        android:buttonTint="#2196F3"
-        />
-    <CheckBox
-        android:id="@+id/opt2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Chocolate"
-        android:buttonTint="#2196F3"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Quantity"
-        />
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="-"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        tools:context=".CoffeActivity">
+
         <TextView
-            android:id="@+id/txtcantidad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginHorizontal="12dp"
-            android:text="1"/>
-        <Button
-            android:layout_width="50dp"
+            android:text="Topping"
+            android:textSize="20sp"
+            />
+        <CheckBox
+            android:id="@+id/opt1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"/>
+            android:text="Whipped Cream"
+            android:buttonTint="#2196F3"
+            />
+        <CheckBox
+            android:id="@+id/opt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chocolate"
+            android:buttonTint="#2196F3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quantity"
+            android:layout_marginTop="12dp"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="-"
+                android:onClick="less"
+                />
+            <TextView
+                android:id="@+id/txtcantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginHorizontal="14dp"
+                android:text="1"
+                />
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:onClick="more"
+                />
+        </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order"
+            android:onClick="order"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="call"
+            android:onClick="call"
+            android:layout_gravity="center"
+            />
     </LinearLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Order"
-        android:onClick="order"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="call"
-        android:onClick="call"/>
 
-
-
-</LinearLayout>
+</RelativeLayout>

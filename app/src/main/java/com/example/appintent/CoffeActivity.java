@@ -28,24 +28,59 @@ public class CoffeActivity extends AppCompatActivity {
         name= getIntent().getStringExtra(MainActivity.NAME);
 
         titulo.setText("Order of "+name);
+
+    }
+    public void less(View view) {
+        int cant = Integer.parseInt(txtcantidad.getText().toString());
+        if (cant>1){
+            int cantidad= cant-1;
+            txtcantidad.setText(""+cantidad);
+        }
+    }
+    public void more(View view) {
+        int cant = Integer.parseInt(txtcantidad.getText().toString());
+        if (cant<10){
+            int cantidad= cant+1;
+            txtcantidad.setText(""+cantidad);
+        }
     }
 
     public void order(View view) {
-        opt1.isChecked();  //true si esta marcado
-        opt1.getText().toString(); //optenermos el texto
         /*Negocio only coffee $3
                     cream $1 - chocolate $2 */
-        Uri uri= Uri.parse("mailto: contact@coffe.com");
+        int agrecrem=0;
+        int agrechoc=0;
+        int tfinal=0;
+        String crem = "", choc="";
+        if (opt1.isChecked()){ //true si esta marcado
+            agrecrem=1;
+            crem = opt1.getText().toString(); //optenermos el texto
+        }
+        if (opt2.isChecked()){ //true si esta marcado
+            agrechoc=2;
+            choc = opt2.getText().toString(); //optenermos el texto
+        }
+        int agre=agrecrem+agrechoc;
+        int cant = Integer.parseInt(txtcantidad.getText().toString());
+        int num = cant*3;
+        if (agre >0){
+            int total= cant*agre;
+             tfinal=num+total;
+        }else{
+             tfinal=num;
+        }
 
+        Uri uri= Uri.parse("mailto: contact@coffe.com");
         Intent intent=new Intent(Intent.ACTION_SENDTO,uri);
-        intent.putExtra(Intent.EXTRA_TEXT,"contenido de correo");
+
+        intent.putExtra(Intent.EXTRA_TEXT,"description: "+cant+" coffe, "+crem+" "+choc);
+        intent.putExtra(Intent.EXTRA_TEXT,"total $"+tfinal);
         intent.putExtra(Intent.EXTRA_SUBJECT,"Order of "+name);
+
         if (intent.resolveActivity(getPackageManager())!=null){
             startActivity(intent);
         }
-
     }
-
     public void call(View view) {
         Uri uri =Uri.parse("tel:133");
         Intent intent=new Intent(Intent.ACTION_DIAL,uri);

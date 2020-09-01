@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="16dp"
+    android:background="#F6C987"
     tools:context=".MainActivity">
+
+
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/logo"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Coffee"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"/>
 
     <EditText
         android:id="@+id/txt1"
@@ -14,6 +31,9 @@
         android:layout_height="wrap_content"
         android:hint="Enter your name"
         android:inputType="text"
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="30px"
+        android:layout_marginHorizontal="80px"
         />
     <Button
         android:layout_width="match_parent"
@@ -21,7 +41,9 @@
         android:text="Confirm"
         android:textAllCaps="false"
         android:onClick="confirm"
+        android:layout_below="@id/txt1"
+        android:layout_marginHorizontal="80px"
         />
 
 
-</LinearLayout>
+</RelativeLayout>
